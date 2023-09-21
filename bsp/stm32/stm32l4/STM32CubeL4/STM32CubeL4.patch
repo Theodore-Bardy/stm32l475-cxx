@@ -1,0 +1,15 @@
+diff -Nur b/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_utils.c a/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_utils.c
+--- STM32CubeL4/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_utils.c	2021-10-06 12:34:53.032786000 +0200
++++ STM32CubeL4/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_ll_utils.c	2021-03-04 05:23:20.000000000 +0100
+@@ -21,6 +21,11 @@
+ #include "stm32l4xx_ll_rcc.h"
+ #include "stm32l4xx_ll_system.h"
+ #include "stm32l4xx_ll_pwr.h"
++#ifdef  USE_FULL_ASSERT
++#include "stm32_assert.h"
++#else
++#define assert_param(expr) ((void)0U)
++#endif /* USE_FULL_ASSERT */
+ 
+ /** @addtogroup STM32L4xx_LL_Driver
+   * @{

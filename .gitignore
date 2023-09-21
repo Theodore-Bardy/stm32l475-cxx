@@ -1,0 +1,5 @@
+build
+bsp/stm32/stm32l4/STM32CubeL4/STM32CubeL4
+bsp/cmsis-svd/cmsis-svd
+freertos/FreeRTOS-Kernel
+libraries/CMSIS_5/CMSIS_5

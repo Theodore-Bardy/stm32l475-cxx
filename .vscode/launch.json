@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "B-L475E-IOT01",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceRoot}",
+            "runToEntryPoint": "main",
+            "executable": "./build/stm32l475_cpp.elf",
+            "device": "STM32L475VGTx",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32l4x.cfg"
+            ],
+            "svdFile": "${workspaceRoot}/bsp/cmsis-svd/cmsis-svd/data/STMicro/STM32L4x5.svd",
+            "preLaunchCommands": [
+                "add-symbol-file ./build/stm32l475_cpp.elf",
+            ]
+        },
+    ]
+}

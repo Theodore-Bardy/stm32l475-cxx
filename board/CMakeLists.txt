@@ -6,3 +6,10 @@
 #            without the written permission of the copyright owner.
 
 include (bsp_stm32l475)
+
+# Board sources
+file(GLOB_RECURSE SOURCES_TEMP ${CMAKE_CURRENT_LIST_DIR}/src/*.cpp)
+target_sources(${APP_EXECUTABLE_NAME} PRIVATE ${SOURCES_TEMP})
+
+# Board includes
+include_directories(${CMAKE_CURRENT_LIST_DIR}/include)

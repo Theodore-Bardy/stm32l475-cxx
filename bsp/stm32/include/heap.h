@@ -16,4 +16,3 @@
 void HeapInit(void);
 
 #endif /* _HEAP_H_ */
-

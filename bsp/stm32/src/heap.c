@@ -12,10 +12,6 @@
 void
 HeapInit(void)
 {
-    HeapRegion_t xHeapRegions[] = {
-        { (unsigned char*)0x10000000, 32*1024 },
-        { (unsigned char*)0x20000000, 96*1024 },
-        { NULL, 0 }
-    };
+    HeapRegion_t xHeapRegions[] = { { (unsigned char*)0x10000000, 32 * 1024 }, { (unsigned char*)0x20000000, 96 * 1024 }, { NULL, 0 } };
     vPortDefineHeapRegions(xHeapRegions);
 }

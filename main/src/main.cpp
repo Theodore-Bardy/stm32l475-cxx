@@ -10,7 +10,7 @@
 #include <FreeRTOS.h>
 #include <task.h>
 #include "main.h"
-
+#include "board_led.h"
 extern "C" {
     #include "bsp.h"
 }
@@ -47,8 +47,15 @@ vTaskApplication(void* pvParams)
 {
     (void)pvParams;
 
+    BOARD_LED led;
+
+    /* Initialize green LED */
+    led.init(LED_GREEN);
+
+    /* Toggle green LED every 200ms */
     for (;;)
     {
-        vTaskDelay(pdMS_TO_TICKS(200));
+        led.toggle();
+        vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }

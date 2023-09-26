@@ -50,15 +50,15 @@
 
 class BOARD_LED
 {
-    private:
-        uint8_t led;
+private:
+    uint8_t led;
 
-    public:
-        void init(uint8_t _led);
-        void deinit();
-        void on();
-        void off();
-        void toggle();
+public:
+    void init(uint8_t _led);
+    void deinit();
+    void on();
+    void off();
+    void toggle();
 };
 
 #endif /* _BOARD_LED_H_ */

@@ -12,7 +12,7 @@
 #include "main.h"
 #include "board_led.h"
 extern "C" {
-    #include "bsp.h"
+#include "bsp.h"
 }
 
 /**

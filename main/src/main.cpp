@@ -17,7 +17,7 @@ extern "C" {
 
 /**
  * @brief First task starts by the scheduler
- * @param[in] pvParams Task parameters, unused 
+ * @param[in] pvParams Task parameters, unused
  */
 static void vTaskApplication(void* pvParams);
 

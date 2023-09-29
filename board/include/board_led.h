@@ -10,6 +10,7 @@
 #ifndef _BOARD_LED_H_
 #define _BOARD_LED_H_
 
+#include <stdint.h>
 #include "stm32l4xx_hal.h"
 
 /**

@@ -7,3 +7,4 @@
 
 # Include modules sub-directories
 include(${CMAKE_CURRENT_LIST_DIR}/logging/CMakeLists.txt)
+include(${CMAKE_CURRENT_LIST_DIR}/messages/CMakeLists.txt)

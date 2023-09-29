@@ -40,10 +40,20 @@ foreach(package ${BSP_MOCKS_PACKAGE_LIST})
     list (APPEND CMAKE_MODULE_PATH ${dir})
 endforeach()
 
+# Default log verbosity
+if(NOT DEFINED VERBOSE_LOG)
+    set(VERBOSE_LOG 1)
+    message("VERBOSE_LOG is not defined, defaulting to ${VERBOSE_LOG}")
+endif()
+target_compile_definitions(${APP_EXECUTABLE_NAME} PRIVATE VERBOSE_LOG=${VERBOSE_LOG})
+
 # Define SDK compile options
 target_compile_options(${APP_EXECUTABLE_NAME} PRIVATE -O0)
 if(CMAKE_BUILD_TYPE MATCHES "Debug")
     target_compile_options(${APP_EXECUTABLE_NAME} PRIVATE -g)
+    target_compile_definitions(${APP_EXECUTABLE_NAME} PRIVATE MODULE_LOG_LEVEL=LOG_DBG)
+else()
+    target_compile_definitions(${APP_EXECUTABLE_NAME} PRIVATE MODULE_LOG_LEVEL=LOG_INF)
 endif()
 
 # Set project's version
@@ -54,6 +64,7 @@ include(${CMAKE_CURRENT_LIST_DIR}/board/CMakeLists.txt)
 include(${CMAKE_CURRENT_LIST_DIR}/freertos/CMakeLists.txt)
 include(${CMAKE_CURRENT_LIST_DIR}/libraries/CMakeLists.txt)
 include(${CMAKE_CURRENT_LIST_DIR}/main/CMakeLists.txt)
+include(${CMAKE_CURRENT_LIST_DIR}/modules/CMakeLists.txt)
 
 # Enable used languages. This must be done after the toolchain has been defined by the BSP.
 enable_language(C CXX ASM)

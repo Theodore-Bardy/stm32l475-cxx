@@ -73,5 +73,12 @@ enable_language(C CXX ASM)
 add_custom_command(TARGET ${APP_EXECUTABLE_NAME}
     POST_BUILD
     COMMAND arm-none-eabi-objcopy -O ihex "${APP_EXECUTABLE_NAME}" "${PROJECT_BASE_NAME}.hex"
-    COMMENT "Invoking: Unsigned Hex file creation"
+    COMMENT "Invoking: Hex file creation"
+)
+
+# Create .bin for application
+add_custom_command(TARGET ${APP_EXECUTABLE_NAME}
+    POST_BUILD
+    COMMAND arm-none-eabi-objcopy -O binary "${APP_EXECUTABLE_NAME}" "${PROJECT_BASE_NAME}.bin"
+    COMMENT "Invoking: Bin file creation"
 )
